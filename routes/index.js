@@ -3,7 +3,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.status(500).json({
+    message: 'Not Available. If you want to try the api call you can do a get call to /simpsons',
+    error: err
+});
 });
 
 module.exports = router;

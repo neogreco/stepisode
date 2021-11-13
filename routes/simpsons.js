@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
   var fullURL=server+season+'x'+episode
   
   if (Object.keys(req.query).length === 0){
-    res.send('<a href='+fullURL+'>Ver Episodio</a>');
+    res.json(fullURL);
   }else{
     res.redirect(fullURL)    
   }
