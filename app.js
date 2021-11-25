@@ -5,7 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/simpsons');
+var simpsonsRouter = require('./routes/simpsons');
+var howIMetYourMotherRouter= require('./routes/how-i-met-your-mother');
 
 var app = express();
 
@@ -20,7 +21,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/simpsons', usersRouter);
+app.use('/simpsons', simpsonsRouter);
+app.use('/how-i-met-your-mother', howIMetYourMotherRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -36,7 +38,7 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.json({
-    message: 'Not Available. If you want to try the api call you can do a get call to /simpsons',
+    message: 'Not Available. If you want to try the api call you can do a get call to /simpsons or /how-i-met-your-mother',
     error: err
 });
   // res.render('error');
